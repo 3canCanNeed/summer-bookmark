@@ -31,8 +31,9 @@ html = html.replace(/<script src="([^"]+\.js)"><\/script>/g, function (m, src) {
 fs.writeFileSync(outFile, html, 'utf8');
 console.log('built ' + outFile + '  ' + Math.round(Buffer.byteLength(html) / 1024) + ' KB');
 
-// 体检：只找标签上的外部引用（js 代码里的字符串拼接不算）
-const left = html.match(/<(?:script|link|img)[^>]+(?:src|href)="(?!data:)([^"]+)"/g) || [];
+// 体检：先剥掉内联脚本（脚本里拼出来的 src="..." 不是真引用），再看剩余标签
+const shell = html.replace(/<script[\s\S]*?<\/script>/g, '<script></script>');
+const left = shell.match(/<(?:script|link|img)[^>]+(?:src|href)="(?!data:)([^"]+)"/g) || [];
 if (left.length) {
   console.log('!! 仍有外部引用: ' + left.join(', '));
 } else {
