@@ -13,7 +13,7 @@
 
 ## 玩
 
-https://3cancanneed.github.io/summer-bookmark/the-last-page-of-summer.html，双击用浏览器打开即可。
+https://3cancanneed.github.io/summer-bookmark/the-last-page-of-summer.html
 
 支持 Chrome / Edge / Firefox / Safari 的较新版本。第一次点击画面后才会出声（浏览器的自动播放限制）。
 
