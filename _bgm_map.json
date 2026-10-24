@@ -1,0 +1,58 @@
+{
+  "quiet": {
+    "file": "title.ogg",
+    "rate": 1.0,
+    "title": "Peaceful Intro (Looping)",
+    "author": "Eric Matyas (www.soundimage.org)",
+    "license": "CC-BY 3.0",
+    "url": "https://opengameart.org/content/peaceful-intro-looping"
+  },
+  "morning": {
+    "file": "title.ogg",
+    "rate": 1.09,
+    "title": "Peaceful Intro (Looping)",
+    "author": "Eric Matyas (www.soundimage.org)",
+    "license": "CC-BY 3.0",
+    "url": "https://opengameart.org/content/peaceful-intro-looping"
+  },
+  "su": {
+    "file": "title.ogg",
+    "rate": 0.955,
+    "title": "Peaceful Intro (Looping)",
+    "author": "Eric Matyas (www.soundimage.org)",
+    "license": "CC-BY 3.0",
+    "url": "https://opengameart.org/content/peaceful-intro-looping"
+  },
+  "true": {
+    "file": "title.ogg",
+    "rate": 0.905,
+    "title": "Peaceful Intro (Looping)",
+    "author": "Eric Matyas (www.soundimage.org)",
+    "license": "CC-BY 3.0",
+    "url": "https://opengameart.org/content/peaceful-intro-looping"
+  },
+  "sad": {
+    "file": "sad.ogg",
+    "rate": 1.0,
+    "title": "Sadness",
+    "author": "cesisco / Zander Noriega / TAD / Extenz, compiled by glitchart",
+    "license": "CC-BY 4.0",
+    "url": "https://opengameart.org/content/sadness-cesisco-zander-noriega-tad-extenz"
+  },
+  "mystery": {
+    "file": "sad.ogg",
+    "rate": 1.135,
+    "title": "Sadness",
+    "author": "cesisco / Zander Noriega / TAD / Extenz, compiled by glitchart",
+    "license": "CC-BY 4.0",
+    "url": "https://opengameart.org/content/sadness-cesisco-zander-noriega-tad-extenz"
+  },
+  "truth": {
+    "file": "sad.ogg",
+    "rate": 0.94,
+    "title": "Sadness",
+    "author": "cesisco / Zander Noriega / TAD / Extenz, compiled by glitchart",
+    "license": "CC-BY 4.0",
+    "url": "https://opengameart.org/content/sadness-cesisco-zander-noriega-tad-extenz"
+  }
+}

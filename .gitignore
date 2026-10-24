@@ -1,0 +1,18 @@
+# 生成产物，由 tools/ 下的脚本重建
+js/assets.js
+js/bgm.js
+夏日书签.html
+
+# 构建中间文件
+*.tmp
+*.log
+
+# 系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器
+.vscode/
+.idea/
+*.swp

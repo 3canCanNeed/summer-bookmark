@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>夏日书签 — The Last Page of Summer</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ==================== 标题画面 ==================== -->
+  <section id="title-screen" class="screen show">
+    <div class="title-art">
+      <img class="ta-photo" alt="" draggable="false">
+      <div class="ta-vignette"></div>
+      <div class="t-chara"></div>
+    </div>
+
+    <div class="title-wrap">
+      <p class="t-en">The Last Page of Summer</p>
+      <h1 class="t-title"><span>夏</span><span>日</span><span>书</span><span>签</span></h1>
+      <p class="t-cn">— 把某一天夹住，不让夏天结束 —</p>
+      <nav class="t-menu">
+        <button data-act="new"><i>01</i><b>开始游戏</b><em>NEW GAME</em></button>
+        <button data-act="continue"><i>02</i><b>继续游戏</b><em>CONTINUE</em></button>
+        <button data-act="gallery"><i>03</i><b>结局图鉴</b><em>ENDINGS</em></button>
+        <button data-act="config"><i>04</i><b>系统设置</b><em>CONFIG</em></button>
+      </nav>
+      <p class="t-foot">全部美术 · 音乐 · 剧情由代码实时生成</p>
+    </div>
+    <div class="title-side">SUMMER 2025</div>
+  </section>
+
+  <!-- ==================== 游戏画面 ==================== -->
+  <section id="game-screen" class="screen">
+    <div id="stage">
+      <div id="bg-layer"></div>
+      <div id="cg-layer"></div>
+      <div id="char-layer"></div>
+      <div id="fx-layer"></div>
+      <div id="grade"></div>
+      <div id="vignette"></div>
+      <div id="flash"></div>
+      <div class="letterbox top"></div>
+      <div class="letterbox bot"></div>
+    </div>
+
+    <div id="chapter-card">
+      <div class="cc-inner">
+        <div class="cc-num"></div>
+        <div class="cc-line"></div>
+        <div class="cc-title"></div>
+      </div>
+    </div>
+
+    <div id="textbox">
+      <div id="name-box"><span id="name"></span></div>
+      <div id="text-wrap"><div id="text"></div></div>
+      <div id="next-ind"><span></span><span></span><span></span></div>
+    </div>
+
+    <div id="choices"></div>
+
+    <div id="toolbar">
+      <button data-t="log" title="对话记录">记录</button>
+      <button data-t="auto" title="自动播放">自动</button>
+      <button data-t="skip" title="快进">快进</button>
+      <button data-t="save" title="存档">存档</button>
+      <button data-t="load" title="读档">读档</button>
+      <button data-t="config" title="设置">设置</button>
+      <button data-t="menu" title="回到标题">标题</button>
+    </div>
+
+    <div id="badge-auto" class="badge">AUTO</div>
+    <div id="badge-skip" class="badge">SKIP</div>
+  </section>
+
+  <!-- ==================== 结局画面 ==================== -->
+  <section id="ending-screen" class="screen">
+    <div class="ed-bg"></div>
+    <div class="ed-inner">
+      <p class="ed-no"></p>
+      <h2 class="ed-title"></h2>
+      <p class="ed-sub"></p>
+      <div class="ed-line"></div>
+      <p class="ed-desc"></p>
+      <div class="ed-stats"></div>
+      <div class="ed-actions">
+        <button data-act="back-title">回到标题</button>
+        <button data-act="gallery">结局图鉴</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 遮罩 / 面板 ==================== -->
+  <div id="shade"></div>
+
+  <div id="panel-log" class="panel">
+    <header>
+      <h3>对话记录</h3>
+      <button class="x" data-close>关闭</button>
+    </header>
+    <div class="panel-body" id="log-body"></div>
+  </div>
+
+  <div id="panel-save" class="panel">
+    <header>
+      <h3 class="sv-title">存档</h3>
+      <button class="x" data-close>关闭</button>
+    </header>
+    <div class="panel-body" id="save-body"></div>
+  </div>
+
+  <div id="panel-config" class="panel">
+    <header>
+      <h3>系统设置</h3>
+      <button class="x" data-close>关闭</button>
+    </header>
+    <div class="panel-body config-body">
+      <div class="cfg-row">
+        <label>主音量</label>
+        <input type="range" min="0" max="100" value="85" data-vol="master">
+        <span class="cfg-val">85</span>
+      </div>
+      <div class="cfg-row">
+        <label>背景音乐</label>
+        <input type="range" min="0" max="100" value="50" data-vol="bgm">
+        <span class="cfg-val">50</span>
+      </div>
+      <div class="cfg-row">
+        <label>音效</label>
+        <input type="range" min="0" max="100" value="75" data-vol="sfx">
+        <span class="cfg-val">75</span>
+      </div>
+      <div class="cfg-row">
+        <label>文字速度</label>
+        <div class="seg" data-speed>
+          <button data-v="55">慢</button>
+          <button data-v="28" class="on">标准</button>
+          <button data-v="12">快</button>
+          <button data-v="0">瞬间</button>
+        </div>
+      </div>
+      <div class="cfg-row">
+        <label>自动播放间隔</label>
+        <div class="seg" data-auto>
+          <button data-v="2200">慢</button>
+          <button data-v="1400" class="on">标准</button>
+          <button data-v="800">快</button>
+        </div>
+      </div>
+      <div class="cfg-row">
+        <label>画面</label>
+        <div class="seg" data-full>
+          <button data-v="0" class="on">窗口</button>
+          <button data-v="1">全屏</button>
+        </div>
+      </div>
+      <div class="cfg-row">
+        <label>数据</label>
+        <div class="seg">
+          <button class="danger" data-clear="save">清除存档</button>
+          <button class="danger" data-clear="all">清除全部</button>
+        </div>
+      </div>
+      <p class="cfg-hint">提示：空格 / 回车 / 鼠标左键推进对话，滚轮上翻可回看记录，右键隐藏界面，按住 Ctrl 快进。</p>
+      <p class="cfg-hint cfg-credit" id="music-credit"></p>
+    </div>
+  </div>
+
+  <div id="panel-gallery" class="panel">
+    <header>
+      <h3>结局图鉴</h3>
+      <button class="x" data-close>关闭</button>
+    </header>
+    <div class="panel-body" id="gallery-body"></div>
+  </div>
+
+  <div id="toast"></div>
+</div>
+
+<script src="js/assets.js"></script>
+<script src="js/bgm.js"></script>
+<script src="js/story.js"></script>
+<script src="js/art.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/engine.js"></script>
+</body>
+</html>
